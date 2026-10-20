@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root { --ok:#2f8f46; --mut:#8a8f98; }
+    body { width: 300px; font: 12px/1.5 -apple-system,"Segoe UI",Roboto,"PingFang SC",sans-serif;
+           margin:0; padding:12px; color:#1f2329; }
+    h1 { font-size:14px; margin:0 0 10px; display:flex; justify-content:space-between; align-items:center;}
+    h1 .tag{ font-size:10px; color:var(--mut); font-weight:400;}
+    .row { display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px dashed #eee;}
+    .row:last-child{border-bottom:0;}
+    .row b{ font-weight:600;}
+    .num{ font-variant-numeric: tabular-nums; color:#c0392b;}
+    .sec{font-size:11px;color:var(--mut);margin:10px 0 4px;letter-spacing:.3px;}
+    .switch{ display:flex; justify-content:space-between; align-items:center; padding:5px 0;}
+    .switch input{ accent-color:#2f8f46; transform:scale(1.15);}
+    #status{ margin-top:10px; font-size:11px; color:var(--ok);}
+    #hint{ font-size:11px; color:var(--mut); margin-top:6px;}
+    button{ margin-top:8px; width:100%; padding:6px; border:1px solid #d9dbe0; background:#fff;
+      border-radius:6px; cursor:pointer;}
+    button:hover{background:#f6f7f9;}
+  </style>
+</head>
+<body>
+  <h1>财联社减负 <span class="tag" id="host">—</span></h1>
+  <div class="sec">当前页实时状态</div>
+  <div class="row"><span>活动标签页</span><b class="num" id="tabNow">—</b></div>
+  <div class="row"><span>DOM 节点(估算)</span><b class="num" id="dom">—</b></div>
+  <div class="row"><span>屏幕外渲染已隔离</span><b class="num" id="cv">—</b></div>
+  <div class="row"><span>本次回收旧条目</span><b class="num" id="rm">—</b></div>
+  <div class="sec">选项</div>
+  <div class="switch">
+    <span>拦截追踪统计脚本 (hm.baidu.com)</span>
+    <input type="checkbox" id="tracker">
+  </div>
+  <div id="status"></div>
+  <div id="hint">提示：若列表无限增长内存仍上升，可告诉我，我会调大回收力度。</div>
+  <button type="button" onclick="location.reload()">刷新统计</button>
+  <script src="popup.js"></script>
+</body>
+</html>

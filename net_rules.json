@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "cdnjs.cls.cn/www/*/js/baidu.js",
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||hm.baidu.com/",
+      "resourceTypes": ["script", "xmlhttprequest", "image"]
+    }
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "财联社减负 (CLS Perf)",
+  "version": "1.0.0",
+  "description": "缓解财联社(cailianshe.com)网页卡顿、高内存、长列表累积：限制快讯DOM上限、屏外内容渲染隔离、回收已滚出元素、拦截重追踪脚本。附轻量性能面板显示真实优化数据。",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.cls.cn/*",
+    "*://*.cailianshe.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.cls.cn/*",
+        "*://*.cailianshe.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "财联社减负"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "trackers",
+        "enabled": true,
+        "path": "net_rules.json"
+      }
+    ]
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
