@@ -69,3 +69,7 @@ icons/             图标
 ## License
 
 MIT
+
+## 上架
+
+商店提交所需文案、权限理由、隐私实践回答与打包命令见 [STORE.md](STORE.md)；隐私政策见 [PRIVACY.md](PRIVACY.md)。
